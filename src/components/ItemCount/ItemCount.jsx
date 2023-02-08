@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import '../ItemCount/ItemCount.css'
-import { cartContext } from '../../storage/cartContext';
+import { CartContext } from '../../storage/cartContext';
 import ItemList from '../ItemList/ItemList';
 const ItemCount = ({ onAdd, initial, stock }) => {
   
@@ -14,7 +14,7 @@ const ItemCount = ({ onAdd, initial, stock }) => {
   };
 
   
-
+  
 
   return (
     <div className="count-container">
@@ -46,6 +46,7 @@ const ItemCount = ({ onAdd, initial, stock }) => {
         disabled={stock === 0 ? true : null}
       >
         Agregar al carrito
+        
       </button>
     </div>
   );

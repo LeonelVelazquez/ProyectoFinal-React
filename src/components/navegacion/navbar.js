@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css"
 import UserMenu from "./UserMenu";
@@ -10,6 +10,7 @@ function Navbar() {
     console.log(evt.target.elements [0].value)
     
   }
+  const getTotalItems = useContext
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">

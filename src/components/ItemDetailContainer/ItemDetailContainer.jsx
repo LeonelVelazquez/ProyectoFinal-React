@@ -4,20 +4,24 @@ import { useParams } from 'react-router-dom'
 import { getSingleItem } from '../../services/mockAsyncService'
 import ItemListContainer from '../ItemListContainer/ItemListContainer'
 import ItemCount from '../ItemCount/ItemCount'
+import { CartContext } from '../../storage/cartContext'
 import "./ItemDetail.css"
-import { cartContext } from '../../storage/cartContext'
 
 
 function ItemDetailContainer() {
   const [item, setItem] = useState({})
   const {itemid} =useParams()
 
+
+
   const onAdd = (qty) => {
-    alert(`Agregaste ${qty} productos`);
+    alert(`Agregaste ${qty} ${item.title} al carrito`);
   };
 
-  const {cart} = useContext(cartContext)
-  
+  const {cart, texto} = useContext(CartContext)
+
+  console.log(cart)
+  console.log(texto)
 
 useEffect(()=>{
   getSingleItem(itemid)
@@ -28,7 +32,7 @@ useEffect(()=>{
 
 
   return (
-    
+
     <center>
       
     <div className="card-detail_main">

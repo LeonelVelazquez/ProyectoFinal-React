@@ -11,7 +11,7 @@ const databaseItemes = [
     },
     {
         id: "2",
-        title: "card 2",
+        title: "Set de jardin Grizzy",
         price: 25,
         detail: "lorem ipsum sararara",
         imgurl: "../assets/img/GRIZZY.png",
