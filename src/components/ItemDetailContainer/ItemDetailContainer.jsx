@@ -4,20 +4,24 @@ import { useParams } from 'react-router-dom'
 import { getSingleItem } from '../../services/mockAsyncService'
 import ItemListContainer from '../ItemListContainer/ItemListContainer'
 import ItemCount from '../ItemCount/ItemCount'
-import { CartContext } from '../../storage/cartContext'
+import { CartContext, CartContextProvider } from '../../storage/cartContext'
 import "./ItemDetail.css"
+import { cartContext } from '../../storage/userContext'
 
 
 function ItemDetailContainer() {
   const [item, setItem] = useState({})
   const {itemid} =useParams()
+  const {cart, texto,} = useContext(CartContext)
+  const {addItem, removeItem, clearCart } = useContext(CartContext) 
 
 
   const onAdd = (qty) => {
-    alert(`Agregaste ${qty} ${item.title} al carrito`);
-  };
+    alert(`Agregaste  ${item.title} al carrito`);
+    addItem(item,qty)
+    };
 
-  const {cart, texto} = useContext(CartContext)
+ 
 
   console.log(cart)
   console.log(texto)
@@ -43,7 +47,10 @@ useEffect(()=>{
         <h2 ClassName="priceTag"> $ {item.price}</h2>
         <small>{item.detail}</small>
         <small><ItemCount onAdd={onAdd} initial={1} stock={7} /></small>
+       <small><button onClick={()=> removeItem(item.id)}>Eliminar</button></small>
+       <small><button onClick={()=> clearCart()}>Borrar carrito</button></small>
       </div>
+
     </div>
     </center>
   )

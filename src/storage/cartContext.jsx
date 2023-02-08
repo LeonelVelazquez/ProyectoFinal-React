@@ -8,7 +8,25 @@ const [cart, setCart] = useState([]);
 
 let [total, setTotal] = useState(0)
 
-function getTotalItem(){
+
+const removeItem = (id) => {
+    const arrayFiltrado= cart.filter((prod)=> prod.id !== id)
+    setCart(arrayFiltrado)
+    }
+
+    const clearCart = () =>{
+        setCart([])
+    }
+
+
+const getTotalItem = () => {
+    return cart.reduce((acc, prod) => acc += prod.amount,0)
+}
+
+
+
+function getTotalPriceInCart(){
+    return 999;
 
 }
 
@@ -42,7 +60,7 @@ const addItem = (item, amount) => {
 
 
 return (
-<CartContext.Provider value={{ cart, texto }}>
+<CartContext.Provider value={{ cart, texto, addItem, getTotalItem, getTotalPriceInCart, removeItem, clearCart}}>
 {children}
 </CartContext.Provider>
 );

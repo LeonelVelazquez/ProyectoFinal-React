@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css"
 import { CartContext } from '../../storage/cartContext'
+import { cartContext } from "../../storage/userContext";
 
 function Navbar() {
 
@@ -10,7 +11,7 @@ function Navbar() {
     console.log(evt.target.elements [0].value)
     
   }
-  const {getTotalItems} = useContext
+  const { getTotalItem } = useContext(CartContext)
  
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -43,7 +44,7 @@ function Navbar() {
           <ul>
             <span>
             🛒
-            
+             {getTotalItem()}
             </span>
           </ul>
           <form onSubmit={handleSumbit}>
