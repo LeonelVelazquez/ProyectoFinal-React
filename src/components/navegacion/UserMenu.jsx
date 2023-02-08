@@ -2,7 +2,7 @@ import { useContext} from "react";
 import { userContext } from "../../storage/userContext";
 
 
-function UserMenu() {
+function userMenu() {
 
  const context = useContext(userContext)
 console.log("--->", context)

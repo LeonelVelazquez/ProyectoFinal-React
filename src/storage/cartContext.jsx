@@ -1,24 +1,50 @@
-import ItemCount from "../components/ItemCount/ItemCount";
+import React, { createContext, useState } from 'react';
 
-const { createContext, useState } = require("react");
+export const CartContext = createContext();
 
-export const cartContext = createContext();
+export const CartContextProvider = ({ children }) => {
 
-export const CartContextProvider = ({children}) => {
+const [cart, setCart] = useState([]);
 
-function getTotalItems(){
-    return cart.length
-}
+let [total, setTotal] = useState(0)
 
-    const [cart, setCart] = useState([])
-
-
-    return (
-        <cartContext.Provider value={ cart }>
-            {children}
-        </cartContext.Provider>
-    )
+function getTotalItem(){
 
 }
-    
-    
+
+const isInCart = (id) => {
+    return cart.some((e) => e.id === id);
+};
+
+const texto = "text"
+
+const addItem = (item, amount) => {
+    let itemAmount = { ...item, amount };
+    if (!isInCart(item.id)) {
+        setCart([...cart, itemAmount]);
+    } else {
+        
+        const newProducts = cart.map(prod => {
+            if(prod.id === item.id) {
+                const newProduct = {
+                    ...prod,
+                    amount: prod.amount + amount
+                }
+                return newProduct
+            } else {
+                return prod
+            }
+        })
+
+        setCart(newProducts)
+    }
+};
+
+
+return (
+<CartContext.Provider value={{ cart, texto }}>
+{children}
+</CartContext.Provider>
+);
+};
+

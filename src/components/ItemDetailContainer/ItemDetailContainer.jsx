@@ -13,7 +13,6 @@ function ItemDetailContainer() {
   const {itemid} =useParams()
 
 
-
   const onAdd = (qty) => {
     alert(`Agregaste ${qty} ${item.title} al carrito`);
   };

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css"
-import UserMenu from "./UserMenu";
+import { CartContext } from '../../storage/cartContext'
 
 function Navbar() {
 
@@ -10,7 +10,8 @@ function Navbar() {
     console.log(evt.target.elements [0].value)
     
   }
-  const getTotalItems = useContext
+  const {getTotalItems} = useContext
+ 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -39,7 +40,12 @@ function Navbar() {
               <Link className="nav-link" to="/category/set">Set de Jardin</Link>
             </li> 
           </ul>
-
+          <ul>
+            <span>
+            🛒
+            
+            </span>
+          </ul>
           <form onSubmit={handleSumbit}>
             <label>
               Ingrese usuario:
