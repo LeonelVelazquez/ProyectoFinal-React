@@ -6,13 +6,13 @@ import { cartContext } from "../../storage/userContext";
 
 function Navbar() {
 
-  function handleSumbit(evt){
+  function handleSumbit(evt) {
     evt.preventDefault();
-    console.log(evt.target.elements [0].value)
-    
+    console.log(evt.target.elements[0].value)
+
   }
   const { getTotalItem } = useContext(CartContext)
- 
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -23,7 +23,7 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse mz" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
@@ -39,26 +39,26 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/category/set">Set de Jardin</Link>
-            </li> 
+            </li>
           </ul>
-          <ul>
-            <span>
-            🛒
-             {getTotalItem()}
-            </span>
-          </ul>
+
           <form onSubmit={handleSumbit}>
             <label>
               Ingrese usuario:
-              <input name="username" placeholder="username"/>
+              <input name="username" placeholder="username" />
             </label>
             <button className="btn btn-outline-success" type="submit">Login</button>
           </form>
+          <ul>
+            <span className="navbar-brand">
+              🛒
+              {getTotalItem()}
+            </span>
+          </ul>
 
-          
-          
+
         </div>
-          
+
       </div>
 
     </nav>

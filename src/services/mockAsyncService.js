@@ -20,10 +20,12 @@ const databaseItemes = [
     {
         id: "3",
         title: "card 3",
+        discount: 30,
         price: 35,
         detail: "lorem ipsum sararara",
         imgurl: "../assets/img/TazaRafa.png",
         category: "tazas",
+        
     },
     {
         id: "4",

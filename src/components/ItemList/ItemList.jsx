@@ -16,6 +16,7 @@ const ItemList = ({ item }) => {
                         price= {item.price}
                         detail={item.detail}
                         imgurl={item.imgurl}
+                        discount={item.discount}
                     />
                 ))}
             </FlexWrapper>
