@@ -14,6 +14,7 @@ function ItemDetailContainer() {
   const { itemid } = useParams()
   const { cart, texto, } = useContext(CartContext)
   const { addItem, removeItem, clearCart, discount } = useContext(CartContext)
+  const [isInCart, setIsIncar] = useState (false)
 
 
   const onAdd = (qty) => {
@@ -53,7 +54,7 @@ function ItemDetailContainer() {
           <small><button className='button-primary_clear' onClick={() => clearCart()}>Borrar carrito</button></small>
           <br/>
           <Link to="/cart"> 
-          <small><button className='button-primary' onClick={() => clearCart()}>Ir al carrito</button></small>
+          <small><button className='button-primary'>Ir al carrito</button></small>
           </Link>
         </div>
 

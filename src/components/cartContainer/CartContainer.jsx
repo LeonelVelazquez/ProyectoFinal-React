@@ -1,31 +1,32 @@
 import React, { useContext } from 'react'
-import { cartContext } from '../../storage/userContext'
+import { CartContext } from '../../storage/cartContext';
+import "./cartContainer.css"
 
 
 function CartContainer() {
-    const { cart } = useContext(cartContext)
+    const { cart, removeItem, getTotalPriceInCart } = useContext(CartContext)
 
     return (
 
         <div>
             <h1>Tu carrito</h1>
-            <div>
+            <div className='products-cart'>
                 {
                     cart.map(item => (
                         <div className='cart-item'>
-                            <h3>{item.title}</h3>
                             <img src={item.imgurl} alt="img" />
-                            <p>{item.price}</p>
+                            <h3>{item.title}</h3>
+                            <p>$ {item.price}</p>
+                            <p>{item.detail}</p>
                             <p>{item.count}</p>
+                            <button className='button-primary_clear' onClick={() => removeItem(item.id)}>x</button>
                         </div>
-
-                    )
-                    )
-                }
-
+                    ))}
+                    
             </div>
-        </div>
+        <small>El total de tu compra es de:$ {getTotalPriceInCart}</small>
 
+        </div>
 
 
 
