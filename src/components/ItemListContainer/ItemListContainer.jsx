@@ -23,7 +23,9 @@ function ItemListContainer() {
   }, [id]);
 
   if (isLoading)
-    return <Loader/>
+
+    return( 
+    <center><Loader/></center>)
 
   return (
     

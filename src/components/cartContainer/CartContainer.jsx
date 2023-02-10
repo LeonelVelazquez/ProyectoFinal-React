@@ -1,10 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { CartContext } from '../../storage/cartContext';
 import "./cartContainer.css"
-
+import Loader from '../Loader/Loader';
 
 function CartContainer() {
     const { cart, removeItem, getTotalPriceInCart } = useContext(CartContext)
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+
+        setIsLoading(false);
+
+    })
+
+
+
+    if (isLoading)
+
+        return (
+            <center><Loader /></center>)
 
     return (
 
@@ -22,12 +36,11 @@ function CartContainer() {
                             <button className='button-primary_clear' onClick={() => removeItem(item.id)}>x</button>
                         </div>
                     ))}
-                    
+
             </div>
-        <small>El total de tu compra es de:$ {getTotalPriceInCart}</small>
+            <strong><p>El total de tu compra es de:$ {getTotalPriceInCart()}</p></strong>
 
         </div>
-
 
 
     );

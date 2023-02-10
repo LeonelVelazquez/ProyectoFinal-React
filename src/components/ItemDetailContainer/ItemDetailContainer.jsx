@@ -7,6 +7,7 @@ import ItemCount from '../ItemCount/ItemCount'
 import { CartContext, CartContextProvider } from '../../storage/cartContext'
 import "./ItemDetail.css"
 import { cartContext } from '../../storage/userContext'
+import Loader from '../Loader/Loader'
 
 
 function ItemDetailContainer() {
@@ -14,31 +15,37 @@ function ItemDetailContainer() {
   const { itemid } = useParams()
   const { cart, texto, } = useContext(CartContext)
   const { addItem, removeItem, clearCart, discount } = useContext(CartContext)
-  const [isInCart, setIsIncar] = useState (false)
+  const [isInCart, setIsIncart] = useState (false)
 
 
   const onAdd = (qty) => {
+    setIsIncart(true);
     alert(`Agregaste  ${item.title} al carrito`);
     addItem(item, qty)
   };
-
-
+  const [isLoading, setIsLoading] = useState(true)
 
   console.log(cart)
   console.log(texto)
 
+
+
   useEffect(() => {
     getSingleItem(itemid)
       .then((respuesta) => {
-        setItem(respuesta);
+        setItem(respuesta)
+        setIsLoading(false);
       })
   }, [itemid])
 
+  if (isLoading)
 
+  return( 
+  <center><Loader/></center>)
+  
   return (
-
+    
     <center>
-
       <div className="card-detail_main">
         <div className="card-detail_img">
           <img src={item.imgurl} alt={item.title} />
@@ -56,6 +63,7 @@ function ItemDetailContainer() {
           <Link to="/cart"> 
           <small><button className='button-primary'>Ir al carrito</button></small>
           </Link>
+         
         </div>
 
 
