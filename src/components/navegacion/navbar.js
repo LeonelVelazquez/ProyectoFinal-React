@@ -49,13 +49,12 @@ function Navbar() {
             </label>
             <button className="btn btn-outline-success" type="submit">Login</button>
           </form>
-          <ul>
-            <span className="navbar-brand">
-              🛒
-              {getTotalItem()}
-            </span>
-          </ul>
-
+          <Link to="/cart">
+              <span className="navbar-brand">
+                🛒
+                {getTotalItem()}
+              </span>
+          </Link>
 
         </div>
 

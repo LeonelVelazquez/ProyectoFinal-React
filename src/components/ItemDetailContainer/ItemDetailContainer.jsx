@@ -56,6 +56,8 @@ function ItemDetailContainer() {
           <span style={{ color: 'green' }}> Descuento: {discount}%</span>
           <br />
           <small>{item.detail}</small>
+          <br />
+          <small><strong>stock: {item.stock}</strong></small>
           <small><ItemCount onAdd={onAdd} initial={1} stock={7} /></small>
           <small><button className='button-primary_remove' onClick={() => removeItem(item.id)}>Eliminar</button></small>
           <small><button className='button-primary_clear' onClick={() => clearCart()}>Borrar carrito</button></small>
