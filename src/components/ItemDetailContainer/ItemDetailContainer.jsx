@@ -29,7 +29,7 @@ function ItemDetailContainer() {
   console.log(cart)
   console.log(texto)
 
-
+getItems()
 
   useEffect(() => {
     getSingleItem(itemid)

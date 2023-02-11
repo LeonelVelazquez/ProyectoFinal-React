@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import getItems from "../../services/mockAsyncService";
+import {firebase} from "../../services/firebase"
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
@@ -10,6 +11,8 @@ function ItemListContainer() {
   const { id } = useParams()
   const [isLoading, setIsLoading] = useState(true)
 
+
+  
   useEffect(() => {
     getItems().then((respuesta) => {
       if (id) {

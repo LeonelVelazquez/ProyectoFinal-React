@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc, collection, getDocs, where, query } from "firebase/firestore";
+import { getFirestore, doc, getDoc, collection, getDocs, where, query, addDoc } from "firebase/firestore";
 
 
 
@@ -57,7 +57,17 @@ export async function ItemListContainer(categoryid) {
     (productsCollectionRef, where("category", "==", categoryid))
 
     const querySnapshot = await getDocs(q)
-    
+
     const dataDocs = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
     return dataDocs
+
+
+   
+}
+
+export async function createBuyOrder(order){
+ const orderCollection = collection("orders")
+ 
+
+ const orderCreated = await addDoc(orderCollection, order)
 }

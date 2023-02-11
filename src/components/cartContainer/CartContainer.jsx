@@ -1,27 +1,37 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { CartContext } from '../../storage/cartContext';
+import Button from '../button/Button';
 import "./cartContainer.css"
-import Loader from '../Loader/Loader';
+
 
 function CartContainer() {
     const { cart, removeItem, getTotalPriceInCart } = useContext(CartContext)
-    const [isLoading, setIsLoading] = useState(true)
+   
 
-    useEffect(() => {
+function handleCheckout(evt){
+const item = cart.map( item =>({ 
+    id: item.id, 
+    title: item.title, 
+    price: item.price, 
+    count: item.count}))
+}
 
-        setIsLoading(false);
+const order = {
+    buyer:{
+        name: "Leonel",
+        email: "Lns@.com",
+        phone: 1234,
+    },
+    items: "",
+    date: "",
+    total: {getTotalPriceInCart},
+    
+    
+}
 
-    })
-
-
-
-    if (isLoading)
-
-        return (
-            <center><Loader /></center>)
-
+   
     return (
-
+<>
         <div>
             <h1>Tu carrito</h1>
             <div className='products-cart'>
@@ -40,10 +50,10 @@ function CartContainer() {
 
             </div>
             <p className='total-carrito'>El total de tu compra es de: $ {getTotalPriceInCart()}</p>
-
         </div>
+        <Button onClick={handleCheckout}>finalizar compra</Button>
 
-
+        </>
     );
 
 }

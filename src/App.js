@@ -14,7 +14,6 @@ import { getSingleItem, testApp } from "./services/firebase";
 
 function App() {
   
-getSingleItem();
 
 
   return (
