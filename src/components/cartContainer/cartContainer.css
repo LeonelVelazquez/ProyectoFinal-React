@@ -1,7 +1,7 @@
 .cart-item {
     margin:0px auto;
     width: 400px;
-    height: 550px;
+    height: 570px;
     background-color: rgb(212, 241, 247);
     margin-top: 40px;
     border-radius: 20px;
@@ -28,4 +28,14 @@
 
 img:hover {
     transform: scale(1.1);
+}
+
+.total-carrito{
+    margin-top: 5px;
+    margin: 0px auto;
+    width: 400px;
+    background-color: rgb(190, 233, 233);
+    border-radius: 6px;
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

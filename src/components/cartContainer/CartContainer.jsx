@@ -33,12 +33,13 @@ function CartContainer() {
                             <p>$ {item.price}</p>
                             <p>{item.detail}</p>
                             <p>{item.count}</p>
+                            <p>Cantidad: {item.amount}</p>
                             <button className='button-primary_clear' onClick={() => removeItem(item.id)}>x</button>
                         </div>
                     ))}
 
             </div>
-            <strong><p>El total de tu compra es de:$ {getTotalPriceInCart()}</p></strong>
+            <p className='total-carrito'>El total de tu compra es de: $ {getTotalPriceInCart()}</p>
 
         </div>
 
